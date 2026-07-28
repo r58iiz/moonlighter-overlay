@@ -20,7 +20,8 @@ const https = require("node:https");
 // The Fandom API endpoint used for Cargo, page parsing, and file resolution.
 const API_URL = "https://moonlighter.fandom.com/api.php";
 
-const USER_AGENT = "github.com/r58iiz/moonlighter-overlay 1.0";
+const USER_AGENT =
+	"MoonlighterFetcher/0.1.1 (https://github.com/r58iiz/moonlighter-overlay) Node.js/24";
 
 // Network defaults.  Each request is retried for transient failures, follows
 // redirects, and is forcefully timed out so one stalled connection cannot stop
@@ -31,7 +32,7 @@ const MAX_REDIRECTS = 8;
 
 // MediaWiki applies strict anonymous API limits. Pace API calls and retry the
 // explicit "ratelimited" response so a large all-culture import can continue.
-const API_MIN_INTERVAL_MS = 1_250;
+const API_MIN_INTERVAL_MS = 6_000;
 const MAX_API_RATE_LIMIT_RETRIES = 5;
 const API_RATE_LIMIT_RETRY_MS = 30_000;
 let nextApiRequestAt = 0;
